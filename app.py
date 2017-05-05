@@ -83,7 +83,7 @@ def makeWebhookResult():
 
 #     print(json.dumps(item, indent=4))
     leave = str(randint(5,25))
-    speech = "You have" + leave + "days of annual leave remaining"
+    speech = "You have " + leave + " days of annual leave remaining"
 
     print("Response:")
     print(speech)
