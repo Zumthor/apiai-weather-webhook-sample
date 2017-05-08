@@ -47,12 +47,12 @@ def processRequest(req):
     leave = str(randint(5,25))
     speech = "You have " + leave + " days of annual leave remaining"
     
-    res =
+    res = {
         "speech": speech,
         "displayText": speech,
         # "data": data,
         # "contextOut": [],
-        "source": "trial-webhook-sample"
+        "source": "trial-webhook-sample" }
     return res
 
 #! LEGACY CODE FOR REFERENCE COMMENTED OUT
