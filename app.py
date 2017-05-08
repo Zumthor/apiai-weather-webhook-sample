@@ -40,19 +40,23 @@ def webhook():
 def processRequest(req):
     if req.get("result").get("action") != "DisplayLeave":
         return {}
-    
-    #yql_url = baseurl + urlencode({'q': yql_query}) + "&format=json"
-    #result = urlopen(yql_url).read()
-    #data = json.loads(result)
     leave = str(randint(5,25))
     speech = "You have " + leave + " days of annual leave remaining"
+    
+#     #read csv
+#     import csv
+#     with open(r'C:\Users\Edmund.Procter\Desktop\State_Capitals.csv', 'r') as f:
+#         reader = csv.DictReader(f)
+#         for row in reader:
+#             print(row['State'])
     
     res = {
         "speech": speech,
         "displayText": speech,
         # "data": data,
         # "contextOut": [],
-        "source": "trial-webhook-sample" }
+        "source": "trial-webhook-sample" 
+        }
     return res
 
 #! LEGACY CODE FOR REFERENCE COMMENTED OUT
