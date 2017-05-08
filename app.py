@@ -38,12 +38,12 @@ def webhook():
 
 #define Main function. returns null if action in JSON action is NOT equal to desired action
 def processRequest(req):
-    if req.get("result").get("action") = "DisplayLeave":
+    if req.get("result").get("action") == "DisplayLeave":
         
         leave = str(randint(5,25))
         speech = "You have " + leave + " days of annual leave remaining"
     
-    elif req.get("result").get("action") = "StateCap":
+    elif req.get("result").get("action") == "StateCap":
         #read csv
         import csv
         with open(r'C:\Users\Edmund.Procter\Desktop\State_Capitals.csv', 'r') as f:
