@@ -38,17 +38,33 @@ def webhook():
 
 #define Main function. returns null if action in JSON action is NOT equal to desired action
 def processRequest(req):
-    if req.get("result").get("action") != "DisplayLeave":
-        return {}
-    leave = str(randint(5,25))
-    speech = "You have " + leave + " days of annual leave remaining"
+    if req.get("result").get("action") = "DisplayLeave":
+        
+        leave = str(randint(5,25))
+        speech = "You have " + leave + " days of annual leave remaining"
     
-#     #read csv
-#     import csv
-#     with open(r'C:\Users\Edmund.Procter\Desktop\State_Capitals.csv', 'r') as f:
-#         reader = csv.DictReader(f)
-#         for row in reader:
-#             print(row['State'])
+    elif req.get("result").get("action") = "StateCap":
+        #read csv
+        import csv
+        with open(r'C:\Users\Edmund.Procter\Desktop\State_Capitals.csv', 'r') as f:
+            raw = csv.DictReader(f)
+            states = []
+            capitals = []
+            for row in raw:
+                state = row['State']
+                capital = row['Capital']
+
+                states.append(state)
+                capitals.append(capital)
+
+        whatSt = req.get("result").get("parameters").get("geo-state-us")
+        capdex = states.index(whatSt)
+        theCap = capitals[capdex]
+        speech = "The capital of " + whatSt,"is: " + theCap
+    
+    else:
+        speech = "action call not recognised"
+    
     
     res = {
         "speech": speech,
