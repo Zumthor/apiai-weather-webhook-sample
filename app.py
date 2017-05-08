@@ -31,7 +31,7 @@ def webhook():
     res = processRequest(req)
 
     res = json.dumps(res, indent=4)
-    # print(res)
+    print(res)
     r = make_response(res)
     r.headers['Content-Type'] = 'application/json'
     return r
@@ -44,7 +44,15 @@ def processRequest(req):
     #yql_url = baseurl + urlencode({'q': yql_query}) + "&format=json"
     #result = urlopen(yql_url).read()
     #data = json.loads(result)
-    res = makeWebhookResult()
+    leave = str(randint(5,25))
+    speech = "You have " + leave + " days of annual leave remaining"
+    
+    res =
+        "speech": speech,
+        "displayText": speech,
+        # "data": data,
+        # "contextOut": [],
+        "source": "trial-webhook-sample"
     return res
 
 #! LEGACY CODE FOR REFERENCE COMMENTED OUT
@@ -58,7 +66,7 @@ def processRequest(req):
 #     return "select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='" + city + "')"
 
 
-def makeWebhookResult():
+#def makeWebhookResult():
 #     query = data.get('query')
 #     if query is None:
 #         return {}
@@ -82,19 +90,19 @@ def makeWebhookResult():
 #         return {}
 
 #     print(json.dumps(item, indent=4))
-    leave = str(randint(5,25))
-    speech = "You have " + leave + " days of annual leave remaining"
+#     leave = str(randint(5,25))
+#     speech = "You have " + leave + " days of annual leave remaining"
 
-    print("Response:")
-    print(speech)
+#     print("Response:")
+#     print(speech)
 
-    return {
-        "speech": speech,
-        "displayText": speech,
-        # "data": data,
-        # "contextOut": [],
-        "source": "trial-webhook-sample"
-    }
+#     return {
+#         "speech": speech,
+#         "displayText": speech,
+#         # "data": data,
+#         # "contextOut": [],
+#         "source": "trial-webhook-sample"
+#     }
 
 
 if __name__ == '__main__':
