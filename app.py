@@ -66,7 +66,7 @@ def processRequest(req):
         capdex = states.index(state)
         capital = capitals[capdex]
         #speech = "The capital of " + state,"is: " + capital
-        speech = "test: " + state
+        speech = "State: " + state + "capdex: " + capdex + "capital: " + capital
     
     else:
         speech = "action call not recognised"
