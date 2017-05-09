@@ -65,7 +65,7 @@ def processRequest(req):
         state = parameters.get("geo-state-us")
         capdex = states.index(state)
         capital = capitals[capdex]
-        speech = "The capital of " + state + "is: " + capital
+        speech = "The capital of " + state + " is: " + capital
         
     
     else:
